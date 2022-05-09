@@ -1,0 +1,16 @@
+.navbar {
+  // display: flex;
+  // align-items: center;
+
+  .container {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+  }
+}
