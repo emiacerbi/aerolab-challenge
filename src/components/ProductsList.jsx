@@ -1,10 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { UserContext } from '../context/UserContext'
+import { sortProducts } from '../helpers/sortProducts'
 import { Product } from './Product'
 
 export const ProductsList = () => {
 
   const { products } = useContext(UserContext)
+
+  const [filters, setFilter] = useState([
+    { value: 'recent', name: 'Most recent' },
+    { value: 'lowest', name: 'Lowest price' },
+    { value: 'highest', name: 'Highest price' }
+  ])
+
+  const [selectedFilter, setSelectedFilter] = useState('recent')
 
   return (
     <>
@@ -14,9 +23,20 @@ export const ProductsList = () => {
 
           <ul className='navbar__list'>
             Sorty by:
-            <li>Most recent</li>
-            <li>Lowest price</li>
-            <li>Highest price</li>
+            {
+              filters
+                .map(filter => {
+                  return (
+                    <li
+                      className={`navbar__list__item ${selectedFilter === filter.value && 'selected'} `}
+                      key={filter.value}
+                      onClick={() => setSelectedFilter(filter.value)}
+                    >
+                      {filter.name}
+                    </li>
+                  )
+                })
+            }
           </ul>
         </div>
 
@@ -26,7 +46,7 @@ export const ProductsList = () => {
         <>
           {
             products ?
-              products.data
+              sortProducts(selectedFilter, products.data)
                 .map(product => <Product key={product._id} {...product} />) :
               <h2>Loading...</h2>
           }
