@@ -3,10 +3,11 @@ import { UserContext } from '../context/UserContext';
 
 import logo from '../assets/aerolab-logo.svg';
 import coin from '../assets/icons/coin.svg';
+import { addPoints } from '../api/api';
 
 export function Header() {
 
-  const { user } = useContext(UserContext);
+  const { user, updatePoints, isLoading } = useContext(UserContext);
 
   const [isModalOn, setIsModalOn] = useState(false)
   const modal = isModalOn ? 'shown' : 'hidden'
@@ -24,7 +25,13 @@ export function Header() {
               <div className={`header__user-info__coins  `}
                 onClick={() => setIsModalOn(!isModalOn)}
               >
-                <p>{user.points}</p>
+                <p>
+                  {
+                    isLoading ?
+                      'Wait' :
+                      user.points
+                  }
+                </p>
                 <img src={coin} alt="coin icon" />
               </div>
 
@@ -34,16 +41,16 @@ export function Header() {
                 <div className='arrow-up'></div>
                 <ul>
 
-                  <li>
-                    1000
+                  <li onClick={() => updatePoints(1000)}>
+                    {isLoading ? 'Wait' : 1000}
                     <img src={coin} alt="coin" />
                   </li>
-                  <li>
-                    5000
+                  <li onClick={() => updatePoints(5000)} >
+                    {isLoading ? 'Wait' : 5000}
                     <img src={coin} alt="coin" />
                   </li>
-                  <li>
-                    7500
+                  <li onClick={() => updatePoints(7500)} >
+                    {isLoading ? 'Wait' : 7500}
                     <img src={coin} alt="coin" />
                   </li>
                 </ul>

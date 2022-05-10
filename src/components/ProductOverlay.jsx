@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
 import coin from '../assets/icons/coin.svg'
 import handbagHover from '../assets/icons/buy-white.svg'
 import { addPoints, redeemProduct } from '../api/api'
+import { UserContext } from '../context/UserContext'
 
 
 export const ProductOverlay = ({ cost, hover, _id }) => {
 
+
+
   const overlay = hover ? 'shown' : 'hidden'
 
-  const [loading, setLoading] = useState(false)
+  const { user, updatePoints, handleRedeem, isLoading } = useContext(UserContext)
 
 
 
@@ -21,9 +24,9 @@ export const ProductOverlay = ({ cost, hover, _id }) => {
         <p className='product__overlay__price' >{cost.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')} </p>
         <img className='product__overlay__coin' src={coin} alt='coin icon' />
       </div>
-      <button onClick={() => redeemProduct(_id)} className='product__overlay__btn'>
+      <button onClick={() => handleRedeem(_id)} className='product__overlay__btn'>
         {
-          loading ? 'Loading' : 'Redeem now'
+          isLoading ? 'Wait' : 'Redeem product'
         }
       </button>
     </div>
