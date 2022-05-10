@@ -7,6 +7,7 @@ export const Hero = () => {
     <div className='hero '>
       <div className='container'>
         <img className='hero__img' src={header} alt='blue headset' />
+        <p>Electronics</p>
       </div>
     </div>
   )

@@ -43,15 +43,15 @@ export function Header() {
                 <ul>
 
                   <li onClick={() => updatePoints(1000)}>
-                    {isLoading ? 'Wait' : 1000}
+                    {1000}
                     <img src={coin} alt="coin" />
                   </li>
                   <li onClick={() => updatePoints(5000)} >
-                    {isLoading ? 'Wait' : 5000}
+                    {5000}
                     <img src={coin} alt="coin" />
                   </li>
                   <li onClick={() => updatePoints(7500)} >
-                    {isLoading ? 'Wait' : 7500}
+                    {7500}
                     <img src={coin} alt="coin" />
                   </li>
                 </ul>

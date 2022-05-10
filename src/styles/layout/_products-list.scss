@@ -1,9 +1,23 @@
+@use '../base/mixins' as *;
+
 .products-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   padding-top: 2rem;
   gap: 1rem;
   justify-items: center;
+
+  @include mq('tablet-small') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mq('tablet') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include mq('tablet-wide') {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
   &.container {
     margin: 0 auto ;

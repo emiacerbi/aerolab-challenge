@@ -31,18 +31,21 @@
     
     &__coins {
       display: flex;
+      position: relative;
       align-items: center;
-      justify-content: center;
+      width: 156px;
+      max-height: 54px;
       padding: 0.5rem 1rem;
       transition: background-color .2s ease;
       border-radius: 100px;
       background-color: #ededed;
       cursor: pointer;
       gap: .5rem;
-
+      
       p {
         display: flex;
         align-items: center;
+        margin: 0 auto;
       }
 
       &:hover {
@@ -50,6 +53,7 @@
       }
       
       img {
+        margin-left: auto;
         padding-top: 4px;
       }
     }
@@ -67,11 +71,11 @@
       text-align: center;
 
       &.shown {
-        opacity: 1;
+        display: block;
       }
 
       &.hidden {
-        opacity: 0;
+        display: none;
       }
 
       .arrow-up {

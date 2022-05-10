@@ -1,6 +1,21 @@
 .hero {
   
   .container {
+    position: relative;
     margin: 0 auto;
+    overflow: hidden;
+
+    p {
+      position: absolute;
+      bottom: 50px;
+      left: 75px;
+      color: #ffffff;
+      font-size: 4rem;
+      font-weight: 700;
+    }
+  }
+
+  &__img {
+    margin-bottom: -50px;
   }
 }
