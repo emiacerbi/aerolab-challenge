@@ -1,25 +1,32 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useMemo, useState } from 'react'
 import { UserContext } from '../context/UserContext'
 import { sortProducts } from '../helpers/sortProducts'
 import { Product } from './Product'
 
+import arrowLeft from '../assets/icons/arrow-left.svg'
+import arrowRight from '../assets/icons/arrow-right.svg'
+
 export const ProductsList = () => {
 
   const { products } = useContext(UserContext)
+  const [selectedFilter, setSelectedFilter] = useState('recent')
+  const [page, setPage] = useState(1)
 
-  const [filters, setFilter] = useState([
+  let firstSlice = page === 1 ? 0 : 16
+  let secondSlice = page === 1 ? 16 : 32
+  let arrow = page === 1 ? arrowRight : arrowLeft
+
+  const filters = [
     { value: 'recent', name: 'Most recent' },
     { value: 'lowest', name: 'Lowest price' },
     { value: 'highest', name: 'Highest price' }
-  ])
-
-  const [selectedFilter, setSelectedFilter] = useState('recent')
+  ]
 
   return (
     <>
       <nav className='navbar'>
         <div className="container">
-          <p>16 of 32 products</p>
+          <p>{products && (page * products.data.length / 2)} of 32 products</p>
 
           <ul className='navbar__list'>
             Sorty by:
@@ -38,20 +45,29 @@ export const ProductsList = () => {
                 })
             }
           </ul>
+          <img className='navbar__arrow' alt='arrow-left' src={arrow} onClick={() => setPage(prevPage => prevPage === 1 ? 2 : prevPage - 1)} />
+
         </div>
+
 
       </nav>
 
       <section className='products-list container'>
-        <>
-          {
-            products ?
-              sortProducts(selectedFilter, products.data)
-                .map(product => <Product key={product._id} {...product} />) :
-              <h2>Loading...</h2>
-          }
-        </>
+        {
+          products ?
+            sortProducts(selectedFilter, products.data)
+              .slice(firstSlice, secondSlice)
+              .map(product => <Product key={product._id} {...product} />) :
+            <h2 className='products-list__spinner'>Loading...</h2>
+        }
       </section>
+
+      <nav className='navbar bottom'>
+        <div className="container">
+          <p>{products && (page * products.data.length / 2)} of 32 products</p>
+          <img className='navbar__arrow' alt='arrow-left' src={arrow} onClick={() => setPage(prevPage => prevPage === 1 ? 2 : prevPage - 1)} />
+        </div>
+      </nav>
     </>
   )
 }

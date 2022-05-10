@@ -20,6 +20,23 @@ export const addPoints = async (amount) => axios.post(pointsEndpoint, {
 
 const productsEndpoint = 'https://coding-challenge-api.aerolab.co/products';
 
-export const getProducts = async () => axios.get(productsEndpoint, config)
-  .then((res) => res)
-  .catch((err) => console.log(err));
+export const getProducts = async () => {
+  return axios.get(productsEndpoint, config)
+    .then((res) => res)
+    .catch((err) => console.log(err));
+}
+
+
+
+const redeemProductEndpoint = 'https://coding-challenge-api.aerolab.co/redeem'
+
+export const redeemProduct = async (prodId) => {
+  axios.post(redeemProductEndpoint, {
+    'productId': prodId
+  }, config)
+    .then((res) => {
+      console.log(res)
+      return res
+    })
+    .catch((err) => console.log(err))
+}

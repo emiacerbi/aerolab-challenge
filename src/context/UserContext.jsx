@@ -9,8 +9,10 @@ export function UserProvider(props) {
 
   useEffect(() => {
     getUser()
-      .then((res) => setUser(res));
-
+      .then((res) => {
+        console.log('peticion')
+        setUser(res)
+      });
     getProducts()
       .then((res) => setProducts(res));
   }, []);
