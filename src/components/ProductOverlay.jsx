@@ -4,6 +4,7 @@ import coin from '../assets/icons/coin.svg'
 import handbagHover from '../assets/icons/buy-white.svg'
 import { UserContext } from '../context/UserContext'
 import { Spinner } from './Spinner'
+import { SpinnerCircularFixed } from 'spinners-react'
 
 
 export const ProductOverlay = ({ cost, hover, _id }) => {
@@ -21,7 +22,8 @@ export const ProductOverlay = ({ cost, hover, _id }) => {
       </div>
       <button onClick={() => handleRedeem(_id)} className='product__overlay__btn'>
         {
-          isLoading ? <Spinner color="rgba(57, 111, 172, 0.78)" size={30} /> : 'Redeem product'
+          isLoading ? <SpinnerCircularFixed size={30} thickness={100} speed={180} color="rgba(37, 187, 241, 0.89)" secondaryColor="rgba(37, 187, 241, 0.16)" /> :
+            'Redeem product'
         }
       </button>
     </div>
