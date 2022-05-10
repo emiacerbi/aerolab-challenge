@@ -60,6 +60,7 @@
 
     &__add-points {
       position: absolute;
+      z-index: 1000;
       top: 75px;
       right: 0;
       width: 400px;
