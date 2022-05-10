@@ -1,5 +1,6 @@
 import { React, createContext, useEffect, useState } from 'react';
 import { addPoints, getProducts, getUser, redeemProduct } from '../api/api';
+import { Spinner } from '../components/Spinner';
 
 export const UserContext = createContext();
 
@@ -28,7 +29,6 @@ export function UserProvider(props) {
       .catch(err => console.log(err))
   }
 
-
   useEffect(() => {
     getUser()
       .then((res) => {
@@ -38,6 +38,12 @@ export function UserProvider(props) {
     getProducts()
       .then((res) => setProducts(res));
   }, []);
+
+  if (!user && !products) {
+    return (
+      <Spinner color="rgba(255, 136, 0, 1)" size={100} />
+    )
+  }
 
   return (
     <UserContext.Provider

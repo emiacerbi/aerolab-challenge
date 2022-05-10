@@ -10,7 +10,7 @@ export const Product = ({ name, cost, img, category, _id }) => {
   return (
     <>
       <article
-        className='product'
+        className='product animate__animated animate__fadeIn'
         onMouseLeave={() => setHover(false)}
         onMouseEnter={() => setHover(true)}
       >

@@ -24,7 +24,7 @@ export const ProductsList = () => {
 
   return (
     <>
-      <nav className='navbar'>
+      <nav className='navbar animate__animated animate__fadeIn'>
         <div className="container">
           <p>{products && (page * products.data.length / 2)} of 32 products</p>
 
@@ -52,7 +52,7 @@ export const ProductsList = () => {
 
       </nav>
 
-      <section className='products-list container'>
+      <section className='products-list container animate__animated animate__fadeIn'>
         {
           products ?
             sortProducts(selectedFilter, products.data)

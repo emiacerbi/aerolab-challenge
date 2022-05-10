@@ -3,7 +3,8 @@ import { UserContext } from '../context/UserContext';
 
 import logo from '../assets/aerolab-logo.svg';
 import coin from '../assets/icons/coin.svg';
-import { addPoints } from '../api/api';
+import { Spinner } from './Spinner';
+
 
 export function Header() {
 
@@ -13,7 +14,7 @@ export function Header() {
   const modal = isModalOn ? 'shown' : 'hidden'
 
   return (
-    <div className="header">
+    <div className="header animate__animated animate__fadeIn">
       <div className="container flex">
 
         <img className="header__logo" src={logo} alt="company logo" />
@@ -28,7 +29,7 @@ export function Header() {
                 <p>
                   {
                     isLoading ?
-                      'Wait' :
+                      <Spinner color="rgba(255, 136, 0, 1)" size={30} /> :
                       user.points
                   }
                 </p>

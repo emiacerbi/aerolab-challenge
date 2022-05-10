@@ -1,21 +1,16 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 
 import coin from '../assets/icons/coin.svg'
 import handbagHover from '../assets/icons/buy-white.svg'
-import { addPoints, redeemProduct } from '../api/api'
 import { UserContext } from '../context/UserContext'
+import { Spinner } from './Spinner'
 
 
 export const ProductOverlay = ({ cost, hover, _id }) => {
 
-
-
   const overlay = hover ? 'shown' : 'hidden'
 
-  const { user, updatePoints, handleRedeem, isLoading } = useContext(UserContext)
-
-
-
+  const { handleRedeem, isLoading } = useContext(UserContext)
 
   return (
     <div className={`product__overlay ${overlay}`}>
@@ -26,7 +21,7 @@ export const ProductOverlay = ({ cost, hover, _id }) => {
       </div>
       <button onClick={() => handleRedeem(_id)} className='product__overlay__btn'>
         {
-          isLoading ? 'Wait' : 'Redeem product'
+          isLoading ? <Spinner color="rgba(57, 111, 172, 0.78)" size={30} /> : 'Redeem product'
         }
       </button>
     </div>

@@ -3,7 +3,7 @@ import { Hero } from "./components/Hero"
 import { ProductsList } from "./components/ProductsList"
 
 import './styles/main.scss'
-
+import 'animate.css'
 
 function App() {
 
