@@ -40,18 +40,23 @@ export function Header() {
                 Add points
                 <div className='arrow-up'></div>
                 <ul>
-
-                  <li onClick={() => updatePoints(1000)}>
-                    {1000}
-                    <img src={coin} alt="coin" />
+                  <li>
+                    <button onClick={() => updatePoints(1000)} disabled={isLoading}>
+                      {1000}
+                      <img src={coin} alt="coin" />
+                    </button>
                   </li>
-                  <li onClick={() => updatePoints(5000)} >
-                    {5000}
-                    <img src={coin} alt="coin" />
+                  <li >
+                    <button onClick={() => updatePoints(5000)} disabled={isLoading}>
+                      {5000}
+                      <img src={coin} alt="coin" />
+                    </button>
                   </li>
-                  <li onClick={() => updatePoints(7500)} >
-                    {7500}
-                    <img src={coin} alt="coin" />
+                  <li >
+                    <button onClick={() => updatePoints(5000)} disabled={isLoading}>
+                      {7500}
+                      <img src={coin} alt="coin" />
+                    </button>
                   </li>
                 </ul>
               </div>
