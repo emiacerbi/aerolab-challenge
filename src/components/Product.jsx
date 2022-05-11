@@ -24,12 +24,12 @@ export const Product = ({ name, cost, img, category, _id }) => {
         {
           !hover && points < cost ?
             <div className='flex product__not-enough'>
-              <span>You need {cost}</span>
+              <span>You need {cost - points}</span>
               <img src={coin} alt="coin" />
             </div> :
             showHandbag
         }
-        <img className='product__img' src={img.url} alt={name} />
+        <img className='product__img' src={img.url} alt={name} width='252px' height='182px' loading="lazy" />
         <p className='product__category'>{category}</p>
         <h3 className='product__name'>{name}</h3>
       </article>

@@ -12,7 +12,8 @@
 
   &__not-enough {
     position: absolute;
-    right: 15px;
+    top: 10%;
+    right: 7.5%;
     align-items: center;
     justify-content: center;
     padding: .6rem 1rem .5rem;
@@ -22,13 +23,6 @@
     font-size: .9rem;
     font-weight: 300;
     gap: .25rem;
-
-    &.center {
-      top: 50%;
-      left: 50%;
-      width: 175px;
-      transform: translate(-50%, -50%);
-    }
   }
 
   &__icon {

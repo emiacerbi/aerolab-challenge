@@ -16,6 +16,7 @@ export function UserProvider(props) {
   const updatePoints = async (points) => {
     setIsLoading(true)
     return addPoints(points).then(res => {
+      // console.log(res)
       setUser({ ...user })
       setPoints(res.data['New Points'])
       setIsLoading(false)
