@@ -1,5 +1,6 @@
 .header {
   padding-block: 1rem;
+  color: #616161;
 
   .container {
     margin: 0 auto;
@@ -33,14 +34,13 @@
       display: flex;
       position: relative;
       align-items: center;
-      width: 156px;
       max-height: 54px;
       padding: 0.5rem 1rem;
       transition: background-color .2s ease;
       border-radius: 100px;
       background-color: #ededed;
       cursor: pointer;
-      gap: .5rem;
+      gap: .25rem;
       
       p {
         display: flex;

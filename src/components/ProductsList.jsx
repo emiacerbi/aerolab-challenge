@@ -24,7 +24,7 @@ export const ProductsList = () => {
 
   return (
     <>
-      <nav className='navbar animate__animated animate__fadeIn'>
+      <nav className='navbar '>
         <div className="container">
           <p>{products && (page * products.data.length / 2)} of 32 products</p>
 

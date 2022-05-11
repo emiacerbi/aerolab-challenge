@@ -5,10 +5,9 @@ import logo from '../assets/aerolab-logo.svg';
 import coin from '../assets/icons/coin.svg';
 import { SpinnerCircularFixed } from 'spinners-react';
 
-
 export function Header() {
 
-  const { user, updatePoints, isLoading } = useContext(UserContext);
+  const { user, points, updatePoints, isLoading } = useContext(UserContext);
 
   const [isModalOn, setIsModalOn] = useState(false)
   const modal = isModalOn ? 'shown' : 'hidden'
@@ -30,7 +29,7 @@ export function Header() {
                   {
                     isLoading ?
                       <SpinnerCircularFixed size={40} thickness={100} speed={180} color="rgba(255, 136, 0, 1)" secondaryColor="rgba(255, 136, 0, 0.24)" /> :
-                      user.points
+                      points
                   }
                 </p>
                 <img src={coin} alt="coin icon" />
