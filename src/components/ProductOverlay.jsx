@@ -5,12 +5,17 @@ import { SpinnerCircularFixed } from 'spinners-react'
 
 import coin from '../assets/icons/coin.svg'
 import handbagHover from '../assets/icons/buy-white.svg'
+import { redeemProduct } from '../api/api'
 
 export const ProductOverlay = ({ cost, hover, _id }) => {
 
   const overlay = hover ? 'shown' : 'hidden'
 
   const { points, handleRedeem, isLoading } = useContext(UserContext)
+
+  // for (let i = 0; i < 2; i++) {
+  //   redeemProduct(_id)
+  // }
 
   return (
     <div className={`product__overlay ${overlay}`}>
