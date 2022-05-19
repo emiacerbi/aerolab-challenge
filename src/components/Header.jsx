@@ -53,7 +53,7 @@ export function Header() {
                     </button>
                   </li>
                   <li >
-                    <button onClick={() => updatePoints(5000)} disabled={isLoading}>
+                    <button onClick={() => updatePoints(7500)} disabled={isLoading}>
                       {7500}
                       <img src={coin} alt="coin" />
                     </button>
