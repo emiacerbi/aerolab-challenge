@@ -1,4 +1,7 @@
 {
   "extends": ["next/core-web-vitals", "standard", "plugin:tailwindcss/recommended"],
-  "plugins": ["tailwindcss"]
+  "plugins": ["tailwindcss"],
+  "rules": {
+    "indent": ["error", 2]
+  }
 } 

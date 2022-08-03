@@ -1,7 +1,12 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { Header } from '../components/Header'
+import { Hero } from '../components/Hero'
+import { fetchProducts } from '../services/fetchProducts'
 
 const Home: NextPage = () => {
+  fetchProducts()
+
   return (
     <>
       <Head>
@@ -10,9 +15,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className='min-h-screen bg-blue-400'>
-        <h1 className=''>Test</h1>
-      </main>
+      <Header />
+      <Hero />
     </>
   )
 }
