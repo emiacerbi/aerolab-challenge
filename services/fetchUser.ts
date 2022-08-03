@@ -1,4 +1,4 @@
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
+const BASE_URL = process.env.NEXT_PUBLIC_USER_URL
 const TOKEN = process.env.NEXT_PUBLIC_TOKEN
 
 const options = {
@@ -8,7 +8,7 @@ const options = {
   }
 }
 
-export async function fetchuser () {
+export async function fetchUser () {
   try {
     const response = await fetch(BASE_URL!, options)
     const data = await response.json()

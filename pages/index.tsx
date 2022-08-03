@@ -1,12 +1,24 @@
-import type { NextPage } from 'next'
+import type { InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 import { Header } from '../components/Header'
 import { Hero } from '../components/Hero'
-import { fetchProducts } from '../services/fetchProducts'
+import Products from '../components/Products'
 
-const Home: NextPage = () => {
-  fetchProducts()
+export type Img = {
+  url: string;
+  hdUrl: string;
+}
 
+export type Product = {
+  img: Img;
+  _id: string;
+  name: string;
+  cost: number;
+  category: string;
+}
+
+const Home = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  console.log(products)
   return (
     <>
       <Head>
@@ -17,8 +29,30 @@ const Home: NextPage = () => {
 
       <Header />
       <Hero />
+      <Products products={products} />
     </>
   )
 }
 
 export default Home
+
+const BASE_URL = process.env.NEXT_PUBLIC_PRODUCTS_URL
+const TOKEN = process.env.NEXT_PUBLIC_TOKEN
+
+const options = {
+  method: 'GET',
+  headers: {
+    Authorization: `Bearer ${TOKEN}`
+  }
+}
+
+export async function getStaticProps () {
+  const response = await fetch(BASE_URL!, options)
+  const products: Product[] = await response.json()
+
+  return {
+    props: {
+      products
+    }
+  }
+}

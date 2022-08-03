@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
-import { fetchuser } from '../services/fetchUser'
+import { fetchUser } from '../services/fetchUser'
 
 type User = {
   _id: string
@@ -24,7 +24,7 @@ export function UserProvider ({ children }: Children) {
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    fetchuser()
+    fetchUser()
       .then(res => setUser(res))
       .catch(err => console.log(err))
       .finally(() => setIsLoading(false))
