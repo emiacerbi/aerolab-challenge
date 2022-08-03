@@ -27,9 +27,11 @@ const Home = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
-      <Hero />
-      <Products products={products} />
+      <div className='bg-primary-bg'>
+        <Header />
+        <Hero />
+        <Products products={products} />
+      </div>
     </>
   )
 }

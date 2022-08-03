@@ -5,7 +5,23 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    extend: {}
+    extend: {
+      colors: {
+        'primary-bg': '#f9f9f9',
+        'primary-font': '#616161',
+        'secondary-font': '#a3a3a3'
+      },
+      maxWidth: {
+        container: '1440px'
+      },
+      backgroundImage: {
+        hero: 'url(/header-x1.png)'
+      },
+      fontFamily: {
+        body: ['Source Sans Pro', 'sans-serif']
+      }
+
+    }
   },
   plugins: []
 }

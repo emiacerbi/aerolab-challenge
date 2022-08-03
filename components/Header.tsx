@@ -7,7 +7,7 @@ export const Header = () => {
 
   return (
     <header className=''>
-      <div className='mx-auto flex max-w-screen-2xl items-center px-6 py-4'>
+      <div className='mx-auto flex max-w-container items-center px-6 py-4'>
         <Image src='/icons/aerolab-logo.svg' width={39} height={39} alt='logo' />
 
         <div className='ml-auto flex gap-3'>

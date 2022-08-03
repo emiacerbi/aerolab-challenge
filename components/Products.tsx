@@ -24,10 +24,10 @@ function Products ({ products }: Props) {
   console.log(products)
   return (
     <main className=''>
-      <div className='mx-auto max-w-screen-2xl'>
-        <h1>Holis</h1>
+      <div className='mx-auto max-w-container'>
+        {/* <h1>Holis</h1> */}
 
-        <section className='grid grid-cols-4'>
+        <section className='grid grid-cols-[276px_276px_276px_276px] justify-center gap-5 py-10'>
           {
             products.map(product => {
               return (
