@@ -18,7 +18,6 @@ export type Product = {
 }
 
 const Home = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(products)
   return (
     <>
       <Head>
