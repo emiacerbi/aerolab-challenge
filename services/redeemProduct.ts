@@ -8,13 +8,13 @@ export async function redeemProduct (productId: string) {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${TOKEN}`
     },
-    body: `{"productId":${productId}}`
+    body: JSON.stringify({ productId })
   }
 
   try {
     const response = await fetch(BASE_URL!, options)
     const data = await response.json()
-    return console.log(data)
+    return data
   } catch (err) {
     return console.error(err)
   }

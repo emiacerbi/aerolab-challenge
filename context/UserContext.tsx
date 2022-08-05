@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
 import { addPoints } from '../services/addPoints'
 import { fetchUser } from '../services/fetchUser'
+import { redeemProduct } from '../services/redeemProduct'
 
 type User = {
   _id: string
@@ -12,6 +13,7 @@ type Context = {
   user: User
   isLoading: boolean
   handleAddPoints: Function
+  handleRedeemProduct: Function
 }
 
 type Children = {
@@ -30,9 +32,16 @@ export function UserProvider ({ children }: Children) {
     addPoints(amount)
       .then((res) => {
         setUser({ ...user, points: user.points + amount })
-        console.log(res)
       })
       .catch((err) => console.log(err))
+  }
+
+  const handleRedeemProduct = (producId: string) => {
+    redeemProduct(producId)
+      .then(() => {
+        fetchUser()
+          .then(res => setUser(res))
+      })
   }
 
   useEffect(() => {
@@ -45,7 +54,7 @@ export function UserProvider ({ children }: Children) {
   if (!user) return <h1>Loading...</h1>
 
   return (
-    <UserContext.Provider value={{ user, isLoading, handleAddPoints }}>
+    <UserContext.Provider value={{ user, isLoading, handleAddPoints, handleRedeemProduct }}>
       {children}
     </UserContext.Provider>
   )

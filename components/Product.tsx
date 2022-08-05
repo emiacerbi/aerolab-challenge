@@ -1,16 +1,18 @@
 import Image from 'next/image'
+import { useContext } from 'react'
+import { UserContext } from '../context/UserContext'
 
 export type Img = {
-  url: string;
-  hdUrl: string;
+  url: string
+  hdUrl: string
 }
 
 export type ProductType = {
-  img: Img;
-  _id: string;
-  name: string;
-  cost: number;
-  category: string;
+  img: Img
+  _id: string
+  name: string
+  cost: number
+  category: string
 }
 
 type Props = {
@@ -18,12 +20,21 @@ type Props = {
 }
 
 export const Product = ({ product }: Props) => {
+  const res = useContext(UserContext)
+
   return (
-    <article className='grid justify-center bg-white p-5 font-body shadow-md'>
-      <Image src={product.img.url} width={252} height={182} alt={product.name} />
-      <hr className='mt-2 mb-4 bg-gray-300 text-primary-font' />
-      <h2 className='text-secondary-font'>{product.category}</h2>
+    <article className="grid justify-center bg-white p-5 font-body shadow-md">
+      <Image
+        src={product.img.url}
+        width={252}
+        height={182}
+        alt={product.name}
+      />
+      <hr className="mt-2 mb-4 bg-gray-300 text-primary-font" />
+      <h2 className="text-secondary-font">{product.category}</h2>
       <p>{product.name}</p>
+
+      <button onClick={() => res?.handleRedeemProduct(product._id)} className="bg-red-400">Redeem</button>
     </article>
   )
 }
