@@ -13,17 +13,24 @@ export const ProductOverlay = ({ productId, productCost }: Props) => {
   if (!res) throw new Error('There was a mistake')
 
   return (
-    <div className="absolute grid h-full w-full place-content-center bg-overlay opacity-0 transition-opacity duration-200 hover:opacity-100 ">
+    <div className="absolute grid h-full w-full place-content-center bg-overlay opacity-0 transition-all duration-200 hover:opacity-100 ">
 
       {
         res.user.points >= productCost && (
-          <div className='grid gap-3'>
-            <div className='flex items-center justify-center gap-2 text-4xl text-white'>
-              <p className='pb-1'>{productCost}</p>
+          <div className='flex flex-col gap-2'>
+            <div className='flex items-center justify-center gap-1 text-4xl text-white'>
+              <p className='mb-1'>{productCost}</p>
               <Coin />
             </div>
 
-            <button onClick={() => res?.handleRedeemProduct(productId)} className="rounded-full bg-gray-100 px-6 py-2">Redeem now</button>
+            <button
+              disabled={res.isLoading}
+              onClick={() => res?.handleRedeemProduct(productId)} className="rounded-full bg-gray-100 px-6 py-2"
+            >
+              {
+                res.isLoading ? 'Wait' : 'Redeem now'
+              }
+            </button>
           </div>
         )
       }

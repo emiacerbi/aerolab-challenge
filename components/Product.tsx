@@ -9,7 +9,7 @@ type Props = {
 
 export const Product = ({ product }: Props) => {
   return (
-    <article className="relative grid justify-center bg-white p-5 font-body shadow-md  transition-all duration-200 hover:-translate-y-2 hover:shadow-xl">
+    <article className="relative grid justify-center bg-white p-5 font-body shadow-lg transition-all duration-200 hover:shadow-xl ">
       <Image
         src={product.img.url}
         width={252}
