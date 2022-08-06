@@ -1,19 +1,7 @@
 import Image from 'next/image'
 import { useContext } from 'react'
 import { UserContext } from '../context/UserContext'
-
-export type Img = {
-  url: string
-  hdUrl: string
-}
-
-export type ProductType = {
-  img: Img
-  _id: string
-  name: string
-  cost: number
-  category: string
-}
+import { ProductType } from '../types/types'
 
 type Props = {
   product: ProductType

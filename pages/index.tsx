@@ -3,19 +3,7 @@ import Head from 'next/head'
 import { Header } from '../components/Header'
 import { Hero } from '../components/Hero'
 import Products from '../components/Products'
-
-export type Img = {
-  url: string;
-  hdUrl: string;
-}
-
-export type Product = {
-  img: Img;
-  _id: string;
-  name: string;
-  cost: number;
-  category: string;
-}
+import { ProductType } from '../types/types'
 
 const Home = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
@@ -26,7 +14,7 @@ const Home = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className='bg-primary-bg'>
+      <div className='bg-primary-bg font-body text-gray-700'>
         <Header />
         <Hero />
         <Products products={products} />
@@ -49,7 +37,7 @@ const options = {
 
 export async function getStaticProps () {
   const response = await fetch(BASE_URL!, options)
-  const products: Product[] = await response.json()
+  const products: ProductType[] = await response.json()
 
   return {
     props: {
