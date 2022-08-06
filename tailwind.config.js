@@ -9,7 +9,8 @@ module.exports = {
       colors: {
         'primary-bg': '#f9f9f9',
         'primary-font': '#616161',
-        'secondary-font': '#a3a3a3'
+        'secondary-font': '#a3a3a3',
+        overlay: 'rgb(21, 219, 255, 0.75)'
       },
       maxWidth: {
         container: '1440px'

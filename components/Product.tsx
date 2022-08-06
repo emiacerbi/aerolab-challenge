@@ -1,17 +1,15 @@
 import Image from 'next/image'
-import { useContext } from 'react'
-import { UserContext } from '../context/UserContext'
+
 import { ProductType } from '../types/types'
+import { ProductOverlay } from './ProductOverlay'
 
 type Props = {
   product: ProductType
 }
 
 export const Product = ({ product }: Props) => {
-  const res = useContext(UserContext)
-
   return (
-    <article className="grid justify-center bg-white p-5 font-body shadow-md">
+    <article className="relative grid justify-center bg-white p-5 font-body shadow-md  transition-all duration-200 hover:-translate-y-2 hover:shadow-xl">
       <Image
         src={product.img.url}
         width={252}
@@ -22,7 +20,7 @@ export const Product = ({ product }: Props) => {
       <h2 className="text-secondary-font">{product.category}</h2>
       <p>{product.name}</p>
 
-      <button onClick={() => res?.handleRedeemProduct(product._id)} className="bg-red-400">Redeem</button>
+      <ProductOverlay productId={product._id} productCost={product.cost} />
     </article>
   )
 }

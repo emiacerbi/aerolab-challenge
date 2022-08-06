@@ -14,7 +14,7 @@ export async function redeemProduct (productId: string) {
   try {
     const response = await fetch(BASE_URL!, options)
     const data = await response.json()
-    return data
+    return console.log(data)
   } catch (err) {
     return console.error(err)
   }
