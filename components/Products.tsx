@@ -20,7 +20,7 @@ function Products ({ products }: Props) {
     <main className="">
       <div className="mx-auto max-w-container">
 
-        <section className='flex items-center gap-2 py-5 text-2xl text-primary-font'>
+        <section className='flex items-center gap-2 py-8   text-2xl text-primary-font'>
           <p className='border-r-2 border-gray-300 pr-2'>16 of 32 products</p>
           <div className='flex items-center gap-2'>
             <p className='text-secondary-font'>Sort by:</p>

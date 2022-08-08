@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from 'react'
+import { BounceLoader } from 'react-spinners'
 import { addPoints } from '../services/addPoints'
 import { fetchUser } from '../services/fetchUser'
 import { redeemProduct } from '../services/redeemProduct'
@@ -40,7 +41,13 @@ export function UserProvider ({ children }: Children) {
       .finally(() => setIsLoading(false))
   }, [])
 
-  if (!user) return <h1>Loading...</h1>
+  if (!user) {
+    return (
+      <div className='absolute grid h-full w-full place-content-center'>
+        <BounceLoader color='#ff7800' size={100} />
+      </div>
+    )
+  }
 
   return (
     <UserContext.Provider value={{ user, isLoading, handleAddPoints, handleRedeemProduct }}>

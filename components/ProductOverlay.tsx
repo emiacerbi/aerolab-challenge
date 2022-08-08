@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { BounceLoader } from 'react-spinners'
 import { UserContext } from '../context/UserContext'
 import { BuyWhite } from './BuyWhite'
 import { Coin } from './Coin'
@@ -28,17 +29,19 @@ export const ProductOverlay = ({ productId, productCost, isHovered }: Props) => 
       {
         res.user.points >= productCost && (
           <div className='flex flex-col gap-2'>
-            <div className='flex items-center justify-center gap-1 text-4xl text-white'>
+            <div className='flex items-center justify-center gap-1 text-5xl text-white'>
               <p className='mb-1'>{productCost}</p>
               <Coin />
             </div>
 
             <button
               disabled={res.isLoading}
-              onClick={() => res?.handleRedeemProduct(productId)} className="rounded-full bg-gray-200 px-6 py-2 transition-colors duration-200 hover:bg-gray-300"
+              onClick={() => res?.handleRedeemProduct(productId)} className="flex w-56 justify-center rounded-full bg-gray-200 py-2 transition-colors duration-200 hover:bg-gray-300"
             >
               {
-                res.isLoading ? 'Wait' : 'Redeem now'
+                res.isLoading
+                  ? <BounceLoader color='#ff7800' size={25} />
+                  : 'Redeem now'
               }
             </button>
           </div>
