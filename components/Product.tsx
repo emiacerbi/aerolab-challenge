@@ -32,6 +32,7 @@ export const Product = ({ product }: Props) => {
         height={182}
         alt={product.name}
       />
+
       {
         !isHovered && product.cost > res.user.points &&
           (

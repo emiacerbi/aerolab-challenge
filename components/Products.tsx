@@ -24,13 +24,14 @@ function Products ({ products }: Props) {
           <p className='border-r-2 border-gray-300 pr-2'>16 of 32 products</p>
           <div className='flex items-center gap-2'>
             <p className='text-secondary-font'>Sort by:</p>
+
             {
               filters.map(filter => {
                 const background = filter.type === selectedFilter ? 'bg-secondary-bg text-white' : 'bg-gray-200'
 
                 return (
                   <button
-                    className={`${background} rounded-full bg-gray-200 py-1 px-5 text-secondary-font transition-colors duration-200 hover:bg-secondary-bg hover:text-white`}
+                    className={`${background} rounded-full py-1 px-5 text-secondary-font transition-colors duration-200 hover:bg-secondary-bg hover:text-white`}
                     key={filter.id}
                     onClick={() => setSelectedFilter(filter.type) }
                   >
@@ -39,6 +40,7 @@ function Products ({ products }: Props) {
                 )
               })
             }
+
           </div>
         </section>
 

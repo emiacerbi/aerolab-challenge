@@ -1,9 +1,9 @@
 import { createContext, useEffect, useState } from 'react'
+import { Children, Context, User } from '../types/types'
 import { BounceLoader } from 'react-spinners'
 import { addPoints } from '../services/addPoints'
 import { fetchUser } from '../services/fetchUser'
 import { redeemProduct } from '../services/redeemProduct'
-import { Children, Context, User } from '../types/types'
 
 export const UserContext = createContext<Context | null>(null)
 
