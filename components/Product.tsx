@@ -19,7 +19,7 @@ export const Product = ({ product }: Props) => {
 
   return (
     <article
-      className={'relative grid justify-center bg-white p-5 font-body shadow-customShadow transition-all duration-300 hover:shadow-2xl'}
+      className={'relative grid justify-center bg-white p-5 font-body shadow-customShadow duration-300 hover:shadow-2xl'}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{

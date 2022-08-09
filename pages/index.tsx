@@ -4,6 +4,7 @@ import { Header } from '../components/Header'
 import { Hero } from '../components/Hero'
 import Products from '../components/Products'
 import { ProductType } from '../types/types'
+import { Toaster } from 'react-hot-toast'
 
 const Home = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
@@ -15,6 +16,7 @@ const Home = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
       </Head>
 
       <div className='bg-primary-bg font-body text-gray-700'>
+        <Toaster />
         <Header />
         <Hero />
         <Products products={products} />

@@ -30,7 +30,7 @@ export const ProductOverlay = ({ productId, productCost, isHovered }: Props) => 
         res.user.points >= productCost && (
           <div className='flex flex-col gap-2'>
             <div className='flex items-center justify-center gap-1 text-5xl text-white'>
-              <p className='mb-1'>{productCost}</p>
+              <p className=''>{productCost}</p>
               <Coin />
             </div>
 

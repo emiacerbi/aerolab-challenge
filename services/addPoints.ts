@@ -1,22 +1,21 @@
-
-const BASE_URL = process.env.NEXT_PUBLIC_POINTS_URL
-const TOKEN = process.env.NEXT_PUBLIC_TOKEN
+import toast from 'react-hot-toast'
 
 export async function addPoints (amount: number) {
   const options = {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${TOKEN}`
+      'Content-Type': 'application/json'
     },
     body: `{"amount":${amount}}`
   }
 
   try {
-    const response = await fetch(BASE_URL!, options)
+    const response = await fetch('/api/user/points', options)
     const points = await response.json()
+    toast.success('Succesfully added points !')
     return points
-  } catch (err) {
-    return console.error(err)
+  } catch (error) {
+    toast.error('There was a mistake, please try again later!')
+    return console.error(error)
   }
 }

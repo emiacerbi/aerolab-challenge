@@ -18,7 +18,7 @@ export const Header = () => {
         <div className='ml-auto flex items-center gap-5 '>
           <p className='mb-[2px]'>{res?.user.name}</p>
           <div className='flex cursor-pointer gap-3 rounded-full bg-gray-200 py-1 px-3 transition-colors duration-200 hover:bg-gray-300' onClick={() => setIsModalOpen(!isModalOpen)}>
-            <p className='mt-[1px] flex items-center' >
+            <div className='mt-[1px] flex items-center' >
               {
                 res?.isLoading
                   ? (
@@ -28,7 +28,7 @@ export const Header = () => {
                   )
                   : res?.user.points
               }
-            </p>
+            </div>
             <Coin />
           </div>
 
