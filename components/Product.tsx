@@ -28,8 +28,8 @@ export const Product = ({ product }: Props) => {
     >
       <Image
         src={product.img.url}
-        width={252}
-        height={182}
+        width={256}
+        height={187}
         alt={product.name}
       />
 
