@@ -7,6 +7,7 @@ import { ProductType } from '../types/types'
 import { Toaster } from 'react-hot-toast'
 
 const Home = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  if (!products) throw new Error('There was something wrong')
   return (
     <>
       <Head>
