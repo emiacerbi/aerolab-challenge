@@ -26,12 +26,8 @@ export function UserProvider ({ children }: Children) {
     redeemProduct(producId)
       .then(() => {
         fetchUser()
-          .then(res => {
-            setUser(res)
-          })
-          .catch(error => {
-            console.error(error)
-          })
+          .then(res => setUser(res))
+          .catch(error => console.error(error))
           .finally(() => setIsLoading(false))
       })
   }

@@ -36,7 +36,7 @@ export const ProductOverlay = ({ productId, productCost, isHovered }: Props) => 
 
             <button
               disabled={res.isLoading}
-              onClick={() => res?.handleRedeemProduct(productId)} className="flex w-56 justify-center rounded-full bg-gray-200 py-2 transition-colors duration-200 hover:bg-gray-300"
+              onClick={() => res?.handleRedeemProduct(productId)} className="flex w-56 justify-center rounded-full bg-gray-100 py-2 transition-colors duration-200 hover:bg-gray-200"
             >
               {
                 res.isLoading

@@ -12,7 +12,7 @@ export const Header = () => {
 
   return (
     <header >
-      <div className='relative mx-auto flex max-w-container items-center px-6 py-4 text-2xl'>
+      <div className='relative mx-auto flex max-w-container items-center px-6 py-4 text-2xl text-[#616161]'>
         <Image src='/icons/aerolab-logo.svg' width={39} height={39} alt='logo' />
 
         <div className='ml-auto flex items-center gap-5 '>
