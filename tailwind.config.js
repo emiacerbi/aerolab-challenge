@@ -17,7 +17,7 @@ module.exports = {
         container: '1440px'
       },
       backgroundImage: {
-        hero: 'url(/header-x1.png)'
+        hero: 'url(/header-x1.jpg)'
       },
       fontFamily: {
         body: ['Source Sans Pro', 'sans-serif']
