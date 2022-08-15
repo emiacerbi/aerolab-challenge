@@ -12,8 +12,6 @@ const Home = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
     <>
       <Head>
         <title>Aerolab Challenge</title>
-        <meta name="aerolab challenge" content="My submission for the challenge" />
-        <link rel="icon" href="/aerolab-logo.svg" />
       </Head>
 
       <div className='bg-primary-bg font-body text-gray-700'>
