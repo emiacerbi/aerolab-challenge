@@ -19,7 +19,7 @@ export default function Document () {
           content="This a solution for the Aerolab's E-commerce Challenge."
         />
 
-        <link rel="icon" href="/public/icons/aerolab-logo.svg" />
+        <link rel="icon" href="/icons/aerolab-logo.svg" />
 
       </Head>
       <body className="bg-primary-bg">
