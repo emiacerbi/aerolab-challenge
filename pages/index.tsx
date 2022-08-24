@@ -14,7 +14,7 @@ const Home = ({ products }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <title>Aerolab Challenge</title>
       </Head>
 
-      <div className='bg-primary-bg font-body text-gray-700'>
+      <div className="fade-in bg-primary-bg font-body text-gray-700">
         <Toaster />
         <Header />
         <Hero />
